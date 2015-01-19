@@ -1,40 +1,91 @@
-# MVCR-Spec- v.06
+# MVCR-Spec-proposed restructure
 ## Minimum Viable Consent Receipt Specification
-Draft version 0.6
+Based on draft version 0.6
 
-Status: T
+# Abstract
 
-Draft version 0.06 specification for MVCR Code Generator and Minimum Viable Consent Receipt Data Description
+# Introduction
 
-This is the first draft version of the MVCR that we plan to work collaboratively on using Git Hub Version Tracking
+Organizations that collect personally identifiable information 
+about individuals typically have legal obligations, regardless of 
+jurisdiction, to provide notice to the individuals from whom they are 
+collecting personal information.  Those organizations must obtain 
+knowledgeable consent from those individuals with respect to how 
+their personal information may be collected, used, disclosed, retained, 
+or destroyed by the data collector. This specification
+defines the technical requirements for a Minimum Viable Consent Receipt 
+(MVCR) token that will provide organizations and individuals with a verifiable
+audit trail regarding any consent given or received in the course of
+collecting and using personally identifiable information.
 
-#Scope
+An MVCR, once created, is a record of the intent and permission to process 
+personal information.  After an MVCR is received [HF: by whom/what?], it serves
+as a record that can be used by the individual to further manage consent 
+and acknowledge the allowed use of personal data by an [HF: organization? 
+application?].  For example, receiving a consent receipt immediately during
+or after a web, mobile or other internet-based service transaction provides 
+an individual with an opportunity to confirm, and if needed, challenge 
+collection and control of personal information. 
 
-* The objective is to develop a core consent format for the record of a consent transaction.  
+Similarly, the MVCR enables the data controller to send a clear 
+signal of trust and compliance that states they will do with 
+personal information.  The consent receipt provides clarity and, through 
+the resulting process transparency, adds trust and protection for all 
+parties against misunderstanding.
 
-* As a result this work is this specification is for the development of the Minimum Viable Consent Receipt.  (MVCR)
+Above all else, the MVCR is specifically designed to provide the minimum 
+viable and required legal notice to a data subject. This allows services that
+use the MVCR to demonstrate compliance with common/basic data privacy and 
+protection regulation found within and across jurisdictions. 
 
-* The aim of this format is to pull out the core requirements for a consent to be legitimate, and to put it into a highly usable structure. 
+The details of the specification are designed to be both human- and machine-
+readable.  Both characteristics are critical to allow for both automation and
+human understanding.  A human-readable consent receipt makes personal data 
+control much more usable by being systematically usable and administrable on 
+aggregate.  The MVCR contains links to policy and contact information which is 
+accessible with one click and enables more advanced and dynamic consent in 
+context.   
 
-* This version of the specification is being written for simple basic use on websites as the context.    
+A MVCR provides an advanced capacity for people to manage consent, in effect 
+enabling a communication channel for consent and future policy communication 
+between both parties.  
 
-* This version of the consent receipt is for explicit consent in this context
+## Scope
+The term ‘Minimum Viable’ in this context, the most basic  and common 
+requirements to record a consent found in regulation across jurisdictions.  
+The MVCR will enable simple two-party personal data transactions to be 
+recorded by both sides. The basic goal of this specification is to create a 
+core MVCR format for the record of consent transactions. The format must be
+a highly usable structure, with the minimum design goal to allow for the 
+basic use of an MVCR on websites with users providing explicit consent to
+the use of their data.
 
-* The term ‘Minimum Viable’ in this context, the most basic  and common requirements to record a consent found in regulation across jurisdictions.  
+This receipt specification proposes both a minimum visual (i.e., human 
+readable) format and an equivalent machine readable record that can be 
+aggregated, audited, or used for reporting on data protection and privacy 
+compliance. 
 
-* 'Consent Receipt’ - Consent refers to the act of clicking a check box and clicking an I agree button to complete a consent transaction. 
+Extensions and developments of the consent receipt infrastructure, although 
+out of scope for a MVCR, will allow auditing, third party (including 
+regulator) validation, and confirmation of consent notices for compliance.
 
-* Receipt refers to a copy of the consent transaction record
+While a full description of possible extensions and developments of the 
+consent receipt infrastructure are out of scope for the MVCR specification,
+possible examples will be listed in order to make clear how the MVCR can 
+and will be extended to allow auditing, third party (including regulator) 
+validation, and confirmation of consent notices for compliance.
 
-* The objective of the consent receipt is to capture the minimum viable consent transaction specific information. This includes:
+The objective of the consent receipt is to capture the minimum viable 
+consent transaction specific information. This includes:
 
- * Contact information of Data Controller and digital identity  provided by the consenter
+ * Contact information of Data Controller and digital identity provided by 
+the consenter.
 
- * links to policies explaining use of personal and sensitive personal data
+ * Links to policies explaining use of personal and sensitive personal data
 
- * a collection of the purpose(s) (like a collection of items being purchased)
+ * A collection of the purpose(s) (like a collection of items being purchased)
 
- * YES or No Flags (compliant by defualt design)
+ * YES or NO Flags (compliant by default design)
 
    * 3rd party data sharing
 
@@ -42,49 +93,7 @@ This is the first draft version of the MVCR that we plan to work collaboratively
 
    * Context Requirements Checklist
 
- * Extensions (for those that are not compliant by default)
-
-   * Core Compliance/Legal Extension
-
-   * 3rd Party Extensions
-
- * Post Release of this version v.06 of the consent receipt  specification we will be writing extension that greatly expand the scope and use of this Minimum Viable format.  Extended so that it can address the notice and consent requirements for very complex data control issues by enabling people with consent management. 
-
-## Purpose
-
-The purpose of this specification is to document the business and technical requirements for a minimum viable consent receipt (MVCR) in a manner that can be prepared and delivered conveniently and easily by data collectors to data subjects.
-
-For organizations with the capabilities to write their own code, this specification defines the fields and an example use case (web site registration) for providing a minimum viable consent receipt to a user.
-
-For organizations that do not have such a capability, this provide the requirements for providing a stand alone  “Consent Receipt Code Generator”  
-
-For the purposes of making this specification easily available, the Kantara Initiative will implement this specification in a single page web application that an organization can use for the purpose of creating the code to generate consent receipts for that organization.
-
-## Background
-
-At this time organizations that collect personally identifiable information about individuals typically have legal obligations provide notice to the individuals from whom they are collecting information about and obtain knowledgeable consent from those individuals with respect to how their personal information may be collected, used, disclosed, retained, or destroyed by the data collector. 
-
-A Consent Receipt evolves consent management by equipping people with a record of consent. This becomes a useful mechanism to provide both notice of what information has been collected  and what will be done with this information. 
-
-* A Consent Receipt once provided is a record of the intent to process personal information.  
-
-* The Consent Receipt once received is then a record the individual holds that can be used independantly to manage consent which acknowledges consent for personal data processing in return.
-
-* Receiving a consent receipt immediately after (or during) a web, mobile or other internet based service transaction provides an individual with an opportunity to confirm, and if needed, challenge collection and control of personal information. 
-
-* Similarly, the consent receipt enables the data controller to send a clear signal of trust and compliance clearly indicatingwhat they will do with personal information. 
-
-* The consent receipt provides clarity and through transparency added trust and protection for all parties against misunderstanding.
-
-* Above all else a Minimum Viable Consent Receipt is specifically designed to provide the minimum viable and required legal notice to a data subject and by so doing demonstrates compliance with common/basic data privacy and protection regulation found within and across jurisdictions. 
-
-Figure 1. MVCR data flow
-
-The MVCR will enable simple two party personal data transactions to be recorded by both sides. 
-
-(Note: Extensions and developments of the consent receipt infrastructure, although out of scope for a minimum viable consent receipt, will be listed and made clear how the MVCR can and will be extended to allow auditing, third party (including regulator) validation and confirmation of consent notices for compliance.)
-
-## Glossary
+## Terminology
  
 | Term | Definition | Example |
 | ---- | ---- | ---- |
@@ -93,7 +102,7 @@ The MVCR will enable simple two party personal data transactions to be recorded 
 | Data Subject (DS) | The natural person that is registering on the web site. | This is typically when a person registers to get access to a web site service. |
 | Identity Provider (IdP) | A third party that provides identity and/or authentication information about the data subject. | |
 | Minimum | A Receipt will contain the purposes to which is consented to | The links to all policies that inform the consent and the contact information of the data controller. |
-| Operational Context of Consent | The list of legal (best practice) requirements for notice for consent in the jurisdiction and context in which the consent is given. | This includes jurisidction requirements as well as the contextual elements to the method of consent capture |
+| Operational Context of Consent | The list of legal (best practice) requirements for notice for consent in the jurisdiction and context in which the consent is given. | This includes jurisdiction requirements as well as the contextual elements to the method of consent capture |
 | Personally Identifiable Information (PII) | Any information that (a) can be used to identify the Data Subject to whom such information relates, or (b) is or might be directly or indirectly linked to a Data Subject. | | 
 | Sensitive Personally Identifiable Information (SPII) | this a flag in the consent receipt that is used for what is legally defined as sensitive and protected data, this varies from jurisdiction to jurisdiction. For this type of data explicit consent is required and a consent receipt extension is needed for this functionality. | include health, financial, children’s data,  sexual data, political/religious data, surveillance data,  (note I think this should include participate in identifying SPII | 
 | Trusted Services | A provider of Trust Product, like a Privacy icons,a certification for standard assurance, a reputation services, a trusted networks, trusted protocols, etc |  |
@@ -102,34 +111,61 @@ The MVCR will enable simple two party personal data transactions to be recorded 
  
  
 ## Minimum Viable Consent Requirements
-A MVCR enables organizations to transparently demonstrate self-asserted compliance with legislation and their own policies.  While also providing a record of the consent to the website/service user that is usable by the individual post consent.  
 
-The Minimum Viable Consent Receipt (MVCR) is comprised of common data fields that are used to capture legally required consent elements of a consent transaction.  Recording the links to a consent policy, purpose specification, name, address and contact information of the Data Controller (DC).
+A Minimum Viable Consent Receipt (MVCR) is comprised of several pre-defined 
+data fields that are used to capture legally required consent elements of a 
+consent transaction. Specifically recording the key policy links [HF: what kind of links?] Links that contain the legally required policy information. These Are: 
+1. Privacy Policy
+2. Terms Of Service
+3. Cookie Policy
+(any other policy that governs consent)
 
-  Note: Issue raised, that a defualt location for the privacy policy should be http://www.domain.com/privacy - wether it is or it isn't the link to the policy should not change, as this will invalidate the compliance of all previous consent receipts)  (Issue raised by John here -->  this is not the case, the For the consent receipt to be auditable and verifiable the consent policy should be accessible by any entity with the URI for the policy. Subsequent changes to the policy should not invalidate the URI for the policy in effect with the CR was issued)
- 
-Data Controllers that provide a consent receipt will be in compliance with common/minimum best practices embodied in data protection and privacy regulations across jurisdictions.  
+] to a consent 
+policy, purpose specification, name, address and contact information of the 
+Data Controller (DC).
 
-All consent receipts require that a Data Controller: 
+Note: For the consent receipt to be auditable and verifiable the consent 
+policy should be accessible by any entity with the URI for the policy. 
+Subsequent changes to the policy should not invalidate the URI for the 
+policy in effect with the CR was issued. 
 
-* Provide a static link to their privacy policy
-* Identify themselves clearly
-* identify the purpose(s) for personal information that is collected;
-* indicate if personally identifiable information will be shared with 3rd parties, or not. (note: a 3rd party sharing extension can be added to the MVCR) 
-* Indicate if Sensitive Personal Information is being gathered (note an extension would require a definition of SPI) so that this can can be used by trust networks for service discovery. (foot note examples of trust networks)
-* note: (list is not complete)
+An MVCR enables organizations to transparently demonstrate self-asserted 
+compliance with legislation and their own policies while also providing a 
+record of the consent to the website/service user that is usable by the 
+individual post consent.  
 
-With this information a consent receipt can be understood as a digital record that both parties can retain and manage. It is not only a human readable consent receipt that makes sense at a glance, it also make personal data control much more usable by being systematically usable and administrable on aggregate.  It contains links to policy and contact information which is accessible with one click and enables more advanced and dynamic consent in context.   
+DCs that provide a MVCR will be able to demonstrate their intent to follow 
+the best practices embodied in data protection and privacy regulation across 
+many jurisdictions. This document provides some more detailed insight into
+potential compliance points with EU, US, Canadian, and UK jurisdictions.
 
-A consent receipt also provides an advanced capacity for people to manage consent, in effect enabling a communication channel for consent and future policy communication between both parties.  
+All consent receipts require that a DC do the following: 
 
-Footnote:Advanced applications would enable in context control of consent and use of data.
+* Provide a static link to their privacy policy.
 
-This receipt specification focuses on the  minimum visual (human readable) format and an equivalent machine readable record that can be aggregated, audited, or used for reporting on data protection and privacy compliance. 
+* Identify themselves clearly.
 
-DC’s that share personally identifiable information and/or collect sensitive personal information can go beyond an MVCR and develop a custom extension, use an existing standard, or register their consent receipt with  trusted service providers. Trusted Service providers can provide assurances and audit frameworks that enable compliance with more stringent and complex obligations for sensitive information and/or 3rd party disclosure. (FootNote: These extensions are beyond the scope of an MVCR.)
+* Identify the intended purpose(s) for any personal information that is 
+collected.
+
+* Indicate whether or not PII will be shared with third parties. 
+
+* Indicate whether or not SPII is being gathered so that this [HF: what is 
+"this"?] can be used by trust networks for service discovery.
+
+DC’s that share personally identifiable information and/or collect sensitive 
+personal information can go beyond an MVCR and develop a custom extension, 
+use an existing standard, or register their consent receipt format with 
+Trusted Service providers. Trusted Service providers can offer assurances and 
+audit frameworks that enable compliance with more stringent and complex 
+obligations for sensitive information and/or 3rd party disclosure. 
 
 ### Consent Notice Data
+[HF: This section needs someone with experience in designing JSON-based 
+specifications to adjust this details of the MVCR fields to a more 
+programmatically viable list of fields and allowable values (e.g., 
+multivalued strings, etc.)]
+
 | Field | Description | Example (XDI) |
 | ---- | ---- | ---- |
 | Data Subject | Name or pseudonym of the Data Subject | Data Subject: Alice [=]!:uuid:1111 |
@@ -142,12 +178,12 @@ DC’s that share personally identifiable information and/or collect sensitive p
 | Site Specific Fields | Additional field or fields as necessary to fulfill the notice and other requirements that the Data Controller may need | --  |
 
  
- 
-Minimum Viable Consent Requirements are a work in progress. On a per jurisdiction basis these can be added to the MVCR as site specific fields. The full reference table can be found here.
-
-Extensions are appended to the MVCR to enhance the compliance, organisational objectives or user experience of the data subject.  
-
 ### Extension Types (added as site specific fields)
+[HF: This section needs someone with experience in designing JSON-based 
+specifications to adjust this details of the MVCR fields to a more 
+programmatically viable list of fields and allowable values (e.g., 
+multivalued strings, etc.)]
+[HF: There is a lot of detail here for something that is stated as out-of-scope.]
 
 | Core Extension | Extend the MVCR | 
 | ---- | ---- |
@@ -157,23 +193,40 @@ Extensions are appended to the MVCR to enhance the compliance, organisational ob
 | Trusted Services | Trust Framework Extensions | 
 | Usability | Extensions that increase usability and adoption of the consent receipt | 
  
-### Core Extensions
+### Jurisdictional Extensions
 
-In each jurisdiction, there are sensitive types of personal information found in privacy and data protection law.  Each sensitive type has prescribed contextual requirements that needs to be included in a notice.  Core extensions can be added to the MVCR to meet complex notice requirements and meet the requirements of multiple regulatory jurisdictions.
+In each jurisdiction, there are sensitive types of personal information found 
+in privacy and data protection law.  Each sensitive type has prescribed 
+contextual requirements that needs to be included in a notice.  Jurisdictional
+extensions can be added to the MVCR to meet complex notice requirements and 
+the requirements of multiple regulatory jurisdictions.
 
-Core extensions can be used by data controllers to localise the use of consent notices for greater usability,  to specific operational contexts and more granular applications of enforcement.
+Jurisdictional extensions may be used by data controllers to localise the use 
+of consent notices for greater usability, to specific operational contexts, and 
+for more granular applications of enforcement.
 
-### Operational Context (OC): Legal Requirement for the MVCR Context 
+### Operational Context (OC)
 
-In the MVCR spec this is a checklist of provisions to guide the fairness of consent harvesting, the usability of a consent notice and to ensure its compliance.
+As a part of creating a receipt for a Data Subject (DS), the OC requires that a 
+checklist accompany the receipt. This functions as a flag: YES or NO. If 
+YES, then there is a self-assertion that the notice will be provided in a 
+fair manner with all of the required considerations as prescribed in law in 
+that jurisdiction.  This is then reflected on the consent receipt.
 
-As a part of creating a receipt for a data subject an organisation displays that they have agreed to implement (or not), the OC requires a checklist accompany the receipt. This functions as a flag: yes or no,  If yes, then there is a self assertion that the notice will be provided in a fair manner with all of the required considerations as prescribed in law in that jurisdiction.  This is then reflected on the consent receipt.
+[HF: The mention of a checklist that functions as a single-value flag doesn't
+make sense.  Should this be something other than a checklist? For example, 
+perhaps a set of variables that have separate fields for context and action.  
+Example: OC_context=UK;notice_provided=yes/no]
 
-Instructions: This is a self asserted option, the Operational Context is a yes or no flag that the receipt provisioner turns on or off.  Operational context is dependent on the location of consent, the use of personal data, the origin of the data, and type of data provided. As Context of a consent can vary significantly operational requirements will also vary.  
+  Instructions: This is a self-asserted option. The Operational Context is a 
+  YES or NO flag that the receipt provisioner turns on or off.  Operational 
+  Context is dependent on the location of consent, the use of personal data, 
+  the origin of the data, and type of data provided. Operational requirements
+  can vary significantly as the context of the MVCR changes with different
+  jurisdictions.
 
 ### Fair & Reasonable Consent Conditions
-Here is a beginning to  a checklist of elements for Operational Consent
-
+Here is a beginning to a list of elements for Operational Consent
  
 | Context: Location Specific | Description | UK | EU | USA | Canada |
 | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -182,33 +235,62 @@ Here is a beginning to  a checklist of elements for Operational Consent
 | Mobile application |  |  |  |  |  | 
 | Entering Physical Space | Sign posted upon entry to physical space |  |  |  |  |  | 
  
-Note: Mark to go through legislation across jurisdiction to complie a more comprehensive list
-
 ### Trusted Services
 
-3rd party trusted services can also be used to extend the compliance or trust inherent to corporate process and these can be added in the form of linked icons in a MVCR. (Note should this refer to a trusted services index)
+Third-party trusted services can also be used to extend the compliance or 
+trust inherent to corporate process and these can be added in the form of 
+linked icons in a MVCR. (Note should this refer to a trusted services index)
 
-## Site Registration Use Case
+# Appendix A = Site Registration Use Case
 
-### Description
+## Description
 
-This draft of the specification is based on the following scenario. 
+This draft of the specification is based on the following scenario: 
 
-* Alice registers with a website, bob.com to donate to listen to bob.com’s podcast.  
-* At or before the time that Alice registers with, or authenticates using a third party identity provider, to bob.com 
-* bob.com  display all the appropriate privacy policies in standard location of the website
-* 3 secnarios for this use case
+[HF: It is not clear what this use case is describing.  Is it describing the
+creation of an MVCR, the creation and use of an MVCR, or just the use of 
+an MVCR?]
+
+* Alice registers with a website, bob.com, to donate to listen to bob.com’s 
+podcast using either a third-party identity provider or a local account at
+bob.com.  
+
+* Upon registration, bob.com displays all the appropriate privacy policies in 
+a prominent location on the website.
+
+There are two scenarios for this use case:
+
   * prior notice was given for consent and needs a receipt 
+
   * current notice is given and requires a receipt
-* and cites, the notice and consent requirements of the regulatory regime in which the web site operates. For the the purposes of this this specification it is assumed that either prior consent receipt has been provided, that this is the first time a consent receipt is provided, or that this is a request for a  consent receipt to be provided (or confirmed) will 
-* consent receipt for bob.com website is code that is created via from and is put behind the consente receipt button, 
-  * This is previously made by filling out a form,
-* A consent receipt is provided at point of consent with a modified consent button
-  * To be added
-    * walk through of the creation and provision of a consent receipt that conforms to the data specification below.
-   * The creation of web site will either provide, or offer to provide, the user with a copy of the consent receipt to complete the registration process. 
-   * The use case ends when the user accepts the consent receipt, or declines the offer.
+
+* The bob.com website cites the notice and consent requirements of the 
+regulatory regime in which the web site operates. For the the purposes of 
+this this specification, it is assumed that either prior consent receipt has 
+been provided, that this is the first time a consent receipt is provided, or 
+that this is a request for a consent receipt to be provided or confirmed.
+
+* Consent receipt for bob.com website is code that is created via from and is 
+put behind the consent receipt button. 
+
+  * This is previously made by filling out a form.
+
+* A consent receipt is provided at point of consent with a modified consent 
+button.
+
+  * To be added:
+
+    * walk through of the creation and provision of a consent receipt that 
+conforms to the data specification below.
+
+   * The creation of web site will either provide, or offer to provide, the 
+user with a copy of the consent receipt to complete the registration process. 
+
+   * The use case ends when the user accepts the consent receipt, or declines 
+the offer.
  
+[HF: What is this table describing?]
+
 | Description Detail | Notes |
 | ---- | ---- |
 | Related Requirements | The provision of a consent receipt enables data providers to demonstrate their compliance with regulatory requirements for notice and consent. |
@@ -298,3 +380,13 @@ This is the start to the brief for the demonstrator that this specification will
 Sample code generator page
 
 
+## Change log
+
+| Version | Status | Writer | Editor | Notes | 
+| ------- | ------ | ------ | ------ | ----- |
+| v.01 | Done | Mark Lizar | Mary Hodder | Summary of Intent |
+| v.02 | Done | Mark Lizar, Mary Hodder | John Wunderlich | Stakeholder Analysis| 
+| v.03 | Done | John Wunderlich, Mark Lizar | Mary Hodder | Summary of Compliance Contents |
+| v.04 | Done | Mark Lizar, Markus Sabadello | John Wunderlich, Mary Hodder | Spec Outline & Demo (Mark), Technical Walkthrough (Markus)|
+| v.05 | Done | John Wunderlich | Mary Hodder, Mark Lizar | Word updating. |
+| v.06 | In process | John Wunderlich | Mary Hodder | Clean up; Added Basic Use Case Describe; MVCR Generator |
